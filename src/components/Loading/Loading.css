@@ -4,6 +4,11 @@
   font-size: 1.6em;
   color: rgb(249, 245, 68);
   text-shadow: 0 0 5px black;
+  display: block;
+}
+
+.loading.hide {
+  display: none;
 }
 
 @media (min-width: 768px) {  

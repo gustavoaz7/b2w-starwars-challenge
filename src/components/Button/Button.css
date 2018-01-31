@@ -12,3 +12,7 @@
   border: 2px solid rgba(254, 250, 78, 0.85);
   border-radius: 4px;
 }
+
+.btn.hide {
+  display: none;
+}

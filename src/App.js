@@ -9,7 +9,7 @@ import getPlanetInfo from './util/fetchPlanet'
 class App extends Component {
   state = {
     planet: {},
-    loaded: false
+    loading: false
   }
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class App extends Component {
   }
   
   newPlanet() {
-    this.setState({ ...this.state, loaded: false })
+    this.setState({ ...this.state, loading: true })
 
     getPlanetInfo()
     .then(res => {
@@ -28,27 +28,26 @@ class App extends Component {
         terrain: res.data.terrain,
         films: res.data.films
       }
-      this.setState({ loaded: true, planet })
+      this.setState({ loading: false, planet })
     })
   }
 
   render() {
-    if(this.state.loaded === true ) {
-      return (
-        <div>
-          <ImageTitle />
-          <Planet {...this.state.planet} />
-          <Button text="Next" handleClick={this.newPlanet.bind(this)}/>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <ImageTitle />
-          <Loading text="Travelling to a new planet..." />
-        </div>
-      )
-    }
+    return (
+      <div>
+        <ImageTitle />
+        <Loading 
+          text="Travelling to a new planet..." 
+          hide={!this.state.loading} />
+        <Planet 
+          {...this.state.planet} 
+          hide={this.state.loading} />
+        <Button 
+          text="Next" 
+          handleClick={this.newPlanet.bind(this)} 
+          hide={this.state.loading} />
+      </div>
+    )
   }
 }
 
