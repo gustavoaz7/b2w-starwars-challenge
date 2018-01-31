@@ -13,14 +13,12 @@ function generateURL(n) {
 }
 
 function generateNewIndex() {
-  let index = Math.floor(Math.random() * N_PLANETS) + 1
-  if (indexesArray.includes(index)) {
-    indexesArray[index] = 0
-    if (indexesArray.reduce((a,b) => a + b, 0) === 0) {
-      indexesArray = [...Array(N_PLANETS + 1).keys()]
-    }
-    return index
-  } else {
+  if (indexesArray.length === 1) {
+    indexesArray = [...Array(N_PLANETS + 1).keys()]
     return generateNewIndex()
   }
+  let index = Math.floor(Math.random() * (indexesArray.length - 1)) + 1
+  let n = indexesArray[index]
+  indexesArray.splice(index, 1)
+  return n
 }
