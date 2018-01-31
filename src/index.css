@@ -8,89 +8,9 @@ body {
   background-size: cover;
 }
 
-.title {
-  display: block;
-  margin: 50px auto;
-  max-width: 300px;
-}
-
-.loading {
-  text-align: center;
-  margin: 100px auto;
-  font-size: 1.6em;
-  color: rgb(249, 245, 68);
-  text-shadow: 0 0 5px black;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    background: rgba(254, 250, 78, 0.9);
-    max-width: 300px;
-    border-radius: 10px;
-    border: 2px solid rgba(6, 6, 5, 0.9);
-    margin: 50px auto 30px auto;
-    padding: 5px 0;
-    -webkit-box-shadow: 0 0 7px 3px rgba(6, 6, 5, 0.7), inset 0 0 13px 2px rgba(117, 117, 36, 0.9);
-    box-shadow: 0 0 7px 3px rgba(6, 6, 5, 0.7), inset 0 0 13px 2px rgba(117, 117, 36, 0.9);
-}
-
-.grid-item {
-  padding: 5px 20px;
-}
-
-.grid-title {
-  text-transform: uppercase;
-  padding: 10px 20px;
-  color: rgba(0,0,0, 0.95);
-}
-
-.grid-divisor {
-  grid-column: 1 / 3;
-  background: rgba(96, 97, 92, 0.8);
-  height: 1px;
-  margin: 0 20px 5px 20px;
-}
-
-.grid-full-row {
-  grid-column: 1 / 3;
-  justify-self: center;
-}
-
-.btn {
-  display: block;
-  margin: 0 auto;
-  padding: 8px 16px;
-  font-family: inherit;
-  font-weight: 700;
-  color: rgba(254, 250, 78, 0.95);
-  background: rgba(6, 6, 5, 0.9);
-  box-shadow: 0 0 5px 1px rgba(254, 250, 78, 0.55);
-  cursor: pointer;
-  text-transform: uppercase;
-  border: 2px solid rgba(254, 250, 78, 0.85);
-  border-radius: 4px;
-}
 
 @media (min-width: 768px) {
-
   body {
     font-size: 1.3em;
-  }
-
-  .title {
-    max-width: 100%;
-  }
-
-  .grid {
-    max-width: 500px;
-  }
-
-  .grid-item {
-    padding: 7px 20px;
-  }
-
-  .loading {
-    font-size: 2em;
   }
 }

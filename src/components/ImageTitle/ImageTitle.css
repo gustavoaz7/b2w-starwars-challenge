@@ -1,0 +1,11 @@
+.title {
+  display: block;
+  margin: 50px auto;
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {  
+  .title {
+    max-width: 100%;
+  }
+}

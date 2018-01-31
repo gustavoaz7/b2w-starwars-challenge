@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import Planet from './components/Planet'
-import Button from './components/Button'
+import Planet from './components/Planet/'
+import Button from './components/Button/'
 import ImageTitle from './components/ImageTitle/'
-import Loading from './components/Loading'
+import Loading from './components/Loading/'
 import getPlanetInfo from './util/fetchPlanet'
 
 class App extends Component {

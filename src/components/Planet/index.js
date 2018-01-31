@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import './Planet.css'
+
 const Planet = (props) => (
   <div className="grid">
     <div className="grid-item grid-title grid-full-row"> {props.name} </div>
