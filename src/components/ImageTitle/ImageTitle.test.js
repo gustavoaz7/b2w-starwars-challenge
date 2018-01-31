@@ -2,10 +2,12 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import App from './App'
+import ImageTitle from './index'
 
-describe('App', () => {
+describe('ImageTitle component', () => {
+
   it('renders without crashing', () => {
-    shallow(<App />)
+    shallow(<ImageTitle />)
   })
+  
 })
