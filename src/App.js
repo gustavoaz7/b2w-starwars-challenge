@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Planet from './components/Planet'
 import Button from './components/Button'
+import ImageTitle from './components/ImageTitle/'
 import Loading from './components/Loading'
 import getPlanetInfo from './util/fetchPlanet'
 
@@ -34,14 +35,18 @@ class App extends Component {
   render() {
     if(this.state.loaded === true ) {
       return (
-        <div className="container">
+        <div>
+          <ImageTitle />
           <Planet {...this.state.planet} />
           <Button text="Next" handleClick={this.newPlanet.bind(this)}/>
         </div>
       )
     } else {
       return (
-        <Loading />
+        <div>
+          <ImageTitle />
+          <Loading text="Travelling to a new planet..." />
+        </div>
       )
     }
   }
