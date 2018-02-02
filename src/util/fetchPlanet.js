@@ -1,15 +1,10 @@
-import axios from 'axios'
-
 const N_PLANETS = 61
 let indexesArray = [...Array(N_PLANETS + 1).keys()]
 
-export default function getPlanetInfo() {
-  const url = generateURL(generateNewIndex())
-  return axios.get(url)
-}
 
-function generateURL(n) {
-  return `https://swapi.co/api/planets/${n}/`
+export default function generatePlanetURL() {
+  const i = generateNewIndex()
+  return `https://swapi.co/api/planets/${i}/`
 }
 
 function generateNewIndex() {

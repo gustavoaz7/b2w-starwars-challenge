@@ -1,54 +1,46 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import Planet from './components/Planet/'
 import Button from './components/Button/'
 import ImageTitle from './components/ImageTitle/'
 import Loading from './components/Loading/'
-import getPlanetInfo from './util/fetchPlanet'
+
+import { getPlanet } from './actions/AppActions'
 
 class App extends Component {
-  state = {
-    planet: {},
-    loading: false
-  }
 
   componentDidMount() {
-    this.newPlanet()
-  }
-  
-  newPlanet() {
-    this.setState({ ...this.state, loading: true })
-
-    getPlanetInfo()
-    .then(res => {
-      const planet = { 
-        name: res.data.name,
-        population: res.data.population,
-        climate: res.data.climate,
-        terrain: res.data.terrain,
-        films: res.data.films
-      }
-      this.setState({ loading: false, planet })
-    })
+    this.props.getPlanet()
   }
 
   render() {
+    const { loading, planet, getPlanet } = this.props
+
     return (
       <div>
         <ImageTitle />
         <Loading 
           text="Travelling to a new planet..." 
-          hide={!this.state.loading} />
+          hide={!loading} />
         <Planet 
-          {...this.state.planet} 
-          hide={this.state.loading} />
+          {...planet} 
+          hide={loading} />
         <Button 
           text="Next" 
-          handleClick={this.newPlanet.bind(this)} 
-          hide={this.state.loading} />
+          handleClick={getPlanet} 
+          hide={loading} />
       </div>
     )
   }
 }
 
-export default App
+const mapStateToProps = state => ({
+  loading: state.loading,
+  planet: state.planet
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators( { getPlanet }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
